@@ -2,6 +2,6 @@
   angular.module('app', [
     'app.core',
     'app.boards',
-    'app.login'
+    'app.auth'
   ]);
 })(angular);
