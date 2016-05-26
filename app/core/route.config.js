@@ -24,9 +24,13 @@
             squash: true
           }
         },
-        resolve:{
-          BoardGet:function(Board,$stateParams){
-            return Board.get({id:$stateParams.id});
+        resolve: {
+          BoardGet: function(Board, $stateParams) {
+            if ($stateParams.id) {
+              return Board.get({
+                id: $stateParams.id
+              });
+            }
           }
         },
         templateUrl: function($stateParams) {

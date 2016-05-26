@@ -1,5 +1,5 @@
 (function(module) {
-  module.controller('boardController', function(Board, $stateParams, $state,BoardGet) {
+  module.controller('boardController', function(Board, $stateParams, $state, BoardGet, Sticky) {
     var vm = this;
     vm.board = {};
     var id = $stateParams.id;
@@ -101,11 +101,20 @@
     vm.save = function() {
       Board.save(vm.board, function(d) {
         $state.go('layout.board', {
-          id: d.id
-        })
+          id: d._id
+        });
       });
     };
-    vm.saveSticky = function(data) {};
+    vm.saveSticky = function(data, section) {
+      var s = {
+        text: data.text,
+        board: vm.board._id,
+        section: section._id
+      };
+      Sticky.save(s, function(updatedData) {
+        console.log(updatedData);
+      });
+    };
     vm.dropCallback = function(event, index, item) {
       return item;
     };
