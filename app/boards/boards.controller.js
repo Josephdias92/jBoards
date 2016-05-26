@@ -101,7 +101,7 @@
     vm.save = function() {
       Board.save(vm.board, function(d) {
         $state.go('layout.board', {
-          id: d.id
+          id: d._id
         })
       });
     };
