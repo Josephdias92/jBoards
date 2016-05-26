@@ -34,6 +34,14 @@
           <label>Section Name({{::section.originalName}})</label>
           <input ng-blur="section.name=section.name||section.originalName" ng-model="section.name">
         </md-input-container>
+         <md-input-container class="md-block" flex-gt-xs>
+            <label>Color</label>
+            <md-select ng-model="section.color">
+              <md-option ng-repeat="color in vm.availableColors" ng-value="color">
+                <span ng-style="{background:color}" >color :  {{color}}</span>
+              </md-option>
+            </md-select>
+          </md-input-container>
       </md-list-item>
 
       <md-list-item>
@@ -57,7 +65,7 @@
         {{section.name}}
       </div>
       <div layout="row" layout-wrap>
-        <md-card flex="42" class="md-card sticky-preview" >
+        <md-card flex="42" class="md-card sticky-preview" ng-style="{background: section.color}">
           <md-card-content>
           some text
           </md-card-content>
@@ -65,7 +73,7 @@
                     <md-button class="md-icon-button"><md-icon md-font-icon="fa fa-heart"></md-icon></md-button>
                   </md-card-actions>
         </md-card>
-        <md-card flex="42" class="md-card sticky-preview" >
+        <md-card flex="42" class="md-card sticky-preview" ng-style="{background: section.color}" >
           <md-card-content>
           some text
           </md-card-content>

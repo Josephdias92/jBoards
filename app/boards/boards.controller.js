@@ -93,7 +93,11 @@
     }];
 
     vm.board.type = vm.boardtypes[1];
-
+    vm.availableColors = [
+      "#FFEB3B",
+      "#F44336",
+      "#03A9F4",
+      "#FF9800" ];
     vm.addSticky = function(arrRef) {
       arrRef.push({text:"Enter Your Text Here"});
     };
