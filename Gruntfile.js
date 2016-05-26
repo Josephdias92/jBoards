@@ -29,8 +29,15 @@ module.exports = function(grunt) {
           ]
         }
       }
-    }
+    },
+    'http-server': {
+      'dev': {
+        port: 8282,
+        openBrowser: true
+      }
+    },
   });
+  grunt.loadNpmTasks('grunt-http-server');
   grunt.loadNpmTasks('grunt-injector');
   grunt.loadNpmTasks('grunt-wiredep');
 };
