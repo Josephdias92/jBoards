@@ -12,10 +12,11 @@
     font-weight: bold;
 }
 .create-board-header{
-	font-size: 1.5rem;
+	font-size: 1.2rem;
     color: #7D7575;
     font-family: Montserrat;
     font-weight: bold;
+    padding-left: 1rem;
 }
 .sticky{
 	font-family: Handwritten;
