@@ -8,7 +8,7 @@
     $stateProvider
       .state('login', {
         url: "/",
-        templateUrl: "app/login/login.html"
+        templateUrl: "app/authentication/login.html"
       })
       .state('layout', {
         abstract: true,
@@ -22,6 +22,11 @@
           id: {
             value: null,
             squash: true
+          }
+        },
+        resolve:{
+          BoardGet:function(Board,$stateParams){
+            return Board.get({id:$stateParams.id});
           }
         },
         templateUrl: function($stateParams) {

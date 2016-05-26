@@ -3,7 +3,7 @@
   <div layout="row" layout-wrap  layout-align="center start" >
   <div flex="30" dnd-drop="vm.dropCallback(event, index, item, external, type, 'itemType')" dnd-list="section.data" class="md-whiteframe-2dp" layout-margin ng-repeat="section in vm.board.type.section">
     <div layout-align="center">
-      {{section.name}} 
+      {{section.name}}
     </div>
       <div layout="row" flex  layout-wrap>
         <md-card dnd-draggable="sticky"
@@ -11,7 +11,7 @@
         dnd-effect-allowed="move"
  flex="45" class="md-card sticky" ng-repeat="sticky in section.data" ng-style="{background:section.color}" >
           <md-card-content>
-            <textarea layout-fill class="typing" ng-model="sticky.text" elastic></textarea>
+            <textarea submit-on-enter="vm.saveSticky(sticky)"  layout-fill class="typing" placeholder="Add Text" ng-model="sticky.text" elastic></textarea>
           </md-card-content>
           <md-card-actions layout="row" layout-align="end end">
             <md-button class="md-icon-button"><md-icon md-font-icon="fa fa-heart"></md-icon></md-button>
@@ -19,7 +19,7 @@
         </md-card>
         <md-button flex class="addMore" md-no-ink ng-click="vm.addSticky(section.data)"><md-icon md-font-icon="fa fa-plus"></md-icon></md-button></md-button>
       </div>
-      
+
     </div>
   </div>
 </div>

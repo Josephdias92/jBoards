@@ -1,6 +1,7 @@
 (function(angular) {
   angular.module('app.core', [
     'ngMaterial',
-    'ui.router'
+    'ui.router',
+    'ngResource'
   ])
 })(angular);
