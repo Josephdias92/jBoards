@@ -9,21 +9,21 @@
 			<md-card-content layout="column" layout-align="center center">
 				<md-input-container>
 					<label>Email</label>
-					<input  type="email">
+					<input ng-model="vm.user.email" type="email">
 				</md-input-container>
 				<md-input-container>
 					<label>Password</label>
-					<input ng-model="user.email" type="password">
+					<input ng-model="vm.user.password" type="password">
 				</md-input-container>
-				
+
 				<md-card-actions layout="row">
-					<md-button class="md-raised md-primary">Login</md-button>
+					<md-button class="md-raised md-primary" ng-click="vm.login(vm.user)">Login</md-button>
 					<md-button class="md-raised md-primary">Register</md-button>
 				</md-card-actions>
 				<md-divider></md-divider>
 				<p >or you can sign in using</p>
 				<md-card-actions layout="row">
-					<md-button class="md-hue-1"><md-icon md-font-icon="fa fa-google"> Gmail</md-icon></md-button>
+					<md-button class="md-hue-1" ng-click="vm.loginViaGoogle()"><md-icon md-font-icon="fa fa-google"> Gmail</md-icon></md-button>
 					<md-button class="md-primary"><md-icon md-font-icon="fa fa-slack"> Slack</md-icon></md-button>
 				</md-card-actions>
 
