@@ -19,16 +19,14 @@
 }
 .sticky{
 	font-family: Handwritten;
-	background-color: #ffff88;
-	border: 1px solid #ffff66;
 	height: 100%;
 }
 
 .sticky .typing{
-	background-color: #ffff88 !important;
 	border: none;
 	outline: none;
 	resize: none;
+  background-color: transparent;
 }
 .sticky-preview{
 	font-family: Handwritten;
@@ -48,4 +46,24 @@ li{
 }
 *{
 	font-family: Roboto;
+}
+
+
+.bggreen{
+  background-color: #BEF1BA !important;
+}
+.bgblue{
+background-color:#CCE9F7 !important;
+}
+.bgpink{
+background-color:#EFBFEF !important;
+}
+.bgpurple{
+background-color: #CFC6FD !important;
+}
+.bgwhite{
+background-color:#F4F4F4 !important;
+}
+.bgyellow{
+background-color: #ffff88 !important;
 }

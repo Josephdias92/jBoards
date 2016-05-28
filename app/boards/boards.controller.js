@@ -97,10 +97,12 @@
     }
 
     vm.availableColors = [
-      "#FFEB3B",
-      "#F44336",
-      "#03A9F4",
-      "#FF9800"
+      "bggreen",
+      "bgblue",
+      "bgpink",
+      "bgpurple",
+      "bgwhite",
+      "bgyellow"
     ];
 
     vm.addSticky = function(arrRef) {
