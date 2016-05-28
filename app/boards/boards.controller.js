@@ -93,13 +93,14 @@
         }]
       }];
       vm.board.type = vm.boardtypes[0];
-    };
+    }
 
     vm.availableColors = [
       "#FFEB3B",
       "#F44336",
       "#03A9F4",
-      "#FF9800" ];
+      "#FF9800"
+    ];
 
     vm.addSticky = function(arrRef) {
       arrRef.push({});
