@@ -1,0 +1,66 @@
+.section {
+  background-color: $color_mine_shaft_approx;
+}
+.text-center {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 1rem;
+  color: $color_tapa_approx;
+  font-family: $font_0;
+  font-weight: bold;
+}
+.create-board-header {
+  font-size: 1.2rem;
+  color: $color_tapa_approx;
+  font-family: $font_0;
+  font-weight: bold;
+  padding-left: 1rem;
+}
+.sticky {
+  font-family: $font_1;
+  height: 100%;
+  .typing {
+    border: none;
+    outline: none;
+    resize: none;
+    background-color: transparent;
+  }
+}
+.sticky-preview {
+  font-family: $font_1;
+  background-color: $color_dolly_approx;
+  padding: 5px;
+}
+.addMore {
+  max-width: 46%;
+  border: 2px solid $color_quill_gray_approx;
+  height: 136px;
+}
+li {
+  list-style-type: none;
+}
+.dndDragover {
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: 0 2px 4px -1px $black_20, 0 4px 5px 0 $black_14, 0 1px 10px 0 $black_12 !important;
+}
+* {
+  font-family: $font_2;
+}
+.bggreen {
+  background-color: $color_madang_approx !important;
+}
+.bgblue {
+  background-color: $color_hawkes_blue_approx !important;
+}
+.bgpink {
+  background-color: $color_french_lilac_approx !important;
+}
+.bgpurple {
+  background-color: $color_periwinkle_approx !important;
+}
+.bgwhite {
+  background-color: $wild_sand !important;
+}
+.bgyellow {
+  background-color: $color_dolly_approx !important;
+}

@@ -1,0 +1,65 @@
+.section {
+  background-color: #333; }
+
+.text-center {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 1rem;
+  color: #7d7575;
+  font-family: Montserrat;
+  font-weight: bold; }
+
+.create-board-header {
+  font-size: 1.2rem;
+  color: #7d7575;
+  font-family: Montserrat;
+  font-weight: bold;
+  padding-left: 1rem; }
+
+.sticky {
+  font-family: Handwritten;
+  height: 100%; }
+  .sticky .typing {
+    border: none;
+    outline: none;
+    resize: none;
+    background-color: transparent; }
+
+.sticky-preview {
+  font-family: Handwritten;
+  background-color: #ffff88;
+  padding: 5px; }
+
+.addMore {
+  max-width: 46%;
+  border: 2px solid #d2d2d2;
+  height: 136px; }
+
+li {
+  list-style-type: none; }
+
+.dndDragover {
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12) !important; }
+
+* {
+  font-family: Roboto; }
+
+.bggreen {
+  background-color: #bef1ba !important; }
+
+.bgblue {
+  background-color: #cce9f7 !important; }
+
+.bgpink {
+  background-color: #efbfef !important; }
+
+.bgpurple {
+  background-color: #cfc6fd !important; }
+
+.bgwhite {
+  background-color: #f4f4f4 !important; }
+
+.bgyellow {
+  background-color: #ffff88 !important; }
+
+/*# sourceMappingURL=style.css.map */
