@@ -93,7 +93,7 @@
         }]
       }];
       vm.board.type = vm.boardtypes[0];
-      vm.board.private=true;
+      vm.board.private = true;
     }
 
     vm.availableColors = [
