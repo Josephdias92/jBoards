@@ -114,7 +114,6 @@
         $mdToast.show(
           $mdToast.simple()
           .textContent(d.name + ' Created!')
-          .position('right bottom')
           .hideDelay(2000)
         );
         $state.go('layout.board', {
