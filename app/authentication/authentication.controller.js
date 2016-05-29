@@ -4,7 +4,7 @@
     vm.user = {};
     vm.login = function(user) {
       Authentication.login(user,
-        function(data) {
+        function() {
           $state.transitionTo("layout.board");
         },
         function(err) {
