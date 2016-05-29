@@ -2,6 +2,7 @@
   angular.module('app.core', [
     'ngMaterial',
     'ui.router',
-    'ngResource'
+    'ngResource',
+    'ngMessages'
   ])
 })(angular);

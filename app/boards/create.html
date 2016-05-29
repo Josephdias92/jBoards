@@ -2,19 +2,23 @@
 
 <div layout="row" layout-xs="column">
   <div flex="30" style="border-right:1px solid #ddd;">
+  <form name="createBoard">
     <md-list>
       <h3 class="create-board-header">Create Board</h3>
       <md-list-item>
         <md-input-container class="md-block" flex>
           <label>Name</label>
-          <input  ng-model="vm.board.name" required="">
+          <input name="boardName"  ng-model="vm.board.name" required="">
+          <div ng-messages="createBoard.boardName.$error">
+              <div ng-message="required">Board Name is required.</div>
+            </div>
         </md-input-container>
       </md-list-item>
 
       <md-list-item>
         <md-input-container class="md-block" flex>
           <label>Description</label>
-          <textarea ng-model="vm.board.description" md-maxlength="100" rows="5" md-select-on-focus></textarea>
+          <textarea name="description" ng-model="vm.board.description" md-maxlength="100" rows="5" md-select-on-focus></textarea>
         </md-input-container>
       </md-list-item>
 
@@ -59,9 +63,10 @@
         </div>
       </md-list-item>
       <md-list-item >
-          <md-button ng-click="vm.save()" class="md-raised md-primary">Create</md-button>
+          <md-button ng-disabled="createBoard.$invalid" ng-click="vm.save()" class="md-raised md-primary">Create</md-button>
       </md-list-item>
     </md-list>
+    </form>
   </div>
 <div flex="70" layout-margin>
     <div layout layout-align="center center">
