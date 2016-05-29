@@ -5,3 +5,6 @@
 .login-page .login-form{
 	padding: 25px;
 }
+.text-danger {
+    color: #a94442;
+}

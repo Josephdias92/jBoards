@@ -8,7 +8,7 @@
           $state.transitionTo("layout.board");
         },
         function(err) {
-          console.log(err);
+          vm.errMsg = err.data.message;
         });
     };
 
