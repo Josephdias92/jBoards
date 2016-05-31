@@ -5,3 +5,8 @@
 .login-page .login-form{
 	padding: 25px;
 }
+.text-danger {
+    color: rgb(221,44,0);
+    font-size: 12px;
+    line-height: 14px;
+}

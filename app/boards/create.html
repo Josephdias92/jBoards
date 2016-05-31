@@ -2,24 +2,28 @@
 
 <div layout="row" layout-xs="column">
   <div flex="30" style="border-right:1px solid #ddd;">
+  <form name="createBoard">
     <md-list>
       <h3 class="create-board-header">Create Board</h3>
       <md-list-item>
-        <md-input-container class="md-block" flex-gt-xs>
+        <md-input-container class="md-block" flex>
           <label>Name</label>
-          <input  ng-model="vm.board.name">
+          <input name="boardName"  ng-model="vm.board.name" required="">
+          <div ng-messages="createBoard.boardName.$error">
+              <div ng-message="required">Board Name is required.</div>
+            </div>
         </md-input-container>
       </md-list-item>
 
       <md-list-item>
-        <md-input-container class="md-block" flex-gt-xs>
+        <md-input-container class="md-block" flex>
           <label>Description</label>
-          <textarea ng-model="vm.board.description" md-maxlength="100" rows="5" md-select-on-focus></textarea>
+          <textarea name="description" ng-model="vm.board.description" md-maxlength="100" rows="5" md-select-on-focus></textarea>
         </md-input-container>
       </md-list-item>
 
       <md-list-item>
-        <md-input-container class="md-block" flex-gt-xs>
+        <md-input-container class="md-block" flex>
           <label>Board Type</label>
           <md-select ng-change="vm.getRowSpan()" ng-model="vm.board.type">
             <md-option ng-repeat="type in vm.boardtypes" ng-value="type">
@@ -29,36 +33,40 @@
         </md-input-container>
       </md-list-item>
 
-      <md-list-item ng-repeat="section in vm.board.type.section">
+      <md-list-item ng-repeat="section in vm.board.type.section track by $index" layout-align="center">
         <md-input-container class="md-block" flex>
           <label>Section Name({{::section.originalName}})</label>
           <input ng-blur="section.name=section.name||section.originalName" ng-model="section.name">
         </md-input-container>
-         <md-input-container class="md-block" flex="30">
+         <md-input-container class="md-block" flex="20">
             <label>Color</label>
-            <md-select ng-model="section.color">
-              <md-option ng-repeat="color in vm.availableColors" ng-value="color">
-                <span ng-style="{background:color,color:color}" >##</span>
+            <md-select ng-init="section.color=vm.availableColors[5]" ng-model="section.color">
+              <md-option ng-repeat="color in vm.availableColors track by $index" ng-value="color">
+                <span ng-class="color" >&nbsp &nbsp &nbsp</span>
               </md-option>
             </md-select>
           </md-input-container>
       </md-list-item>
 
       <md-list-item>
-        <md-contact-chips flex-gt-xs ng-model="vm.board.team" secondary-placeholder="Enter Team Name or Emails" placeholder="Enter Team Name or Emails">
+        <md-contact-chips flex ng-model="vm.board.team" secondary-placeholder="Enter Team Name or Emails" placeholder="Enter Team Name or Emails">
         </md-contact-chips>
       </md-list-item>
       <md-list-item  md-no-ink>
-        <div layout-margin flex-gt-xs>
+        <div layout-margin flex>
           <md-checkbox class="md-primary" ng-model="vm.board.timeout" aria-label="timeout">
             Timeout (15 Mins)
+          </md-checkbox>
+          <md-checkbox class="md-primary" ng-model="vm.board.private" aria-label="Private">
+            Private
           </md-checkbox>
         </div>
       </md-list-item>
       <md-list-item >
-          <md-button ng-click="vm.save()" class="md-raised md-primary">Create</md-button>
+          <md-button ng-disabled="createBoard.$invalid" ng-click="vm.save()" class="md-raised md-primary">Create</md-button>
       </md-list-item>
     </md-list>
+    </form>
   </div>
 <div flex="70" layout-margin>
     <div layout layout-align="center center">
@@ -70,7 +78,7 @@
         {{section.name}}
       </div>
       <div layout="row" layout-wrap>
-        <md-card flex="42" class="md-card sticky-preview" ng-style="{background: section.color}">
+        <md-card flex="42" class="md-card sticky-preview" ng-class="section.color">
           <md-card-content style="height: 35px;">
           some text
           </md-card-content>
@@ -78,7 +86,7 @@
                     <md-button class="md-icon-button"><md-icon md-font-icon="fa fa-heart"></md-icon></md-button>
                   </md-card-actions>
         </md-card>
-        <md-card flex="42" class="md-card sticky-preview" ng-style="{background: section.color}" >
+        <md-card flex="42" class="md-card sticky-preview" ng-class="section.color" >
           <md-card-content style="height: 35px;">
           some text
           </md-card-content>

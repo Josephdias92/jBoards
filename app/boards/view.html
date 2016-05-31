@@ -9,7 +9,7 @@
         <md-card dnd-draggable="sticky"
         dnd-moved="section.data.splice($index, 1)"
         dnd-effect-allowed="move"
- flex="45" class="md-card sticky" ng-repeat="sticky in section.data" ng-style="{background:section.color}" >
+ flex="45" class="md-card sticky" ng-repeat="sticky in section.data" ng-class="section.color" >
           <md-card-content>
             <textarea submit-on-enter="vm.saveSticky(sticky,section)"  layout-fill class="typing" placeholder="Add Text" ng-model="sticky.text" elastic></textarea>
           </md-card-content>

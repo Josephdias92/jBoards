@@ -8,16 +8,20 @@
     $stateProvider
       .state('login', {
         url: "/",
-        templateUrl: "app/authentication/login.html"
+        controller: 'authController as vm',
+        templateUrl: 'app/authentication/login.html',
+        authenticate: false
       })
       .state('layout', {
         abstract: true,
         url: "/layout",
-        templateUrl: "app/layout/main.html"
+        templateUrl: 'app/layout/main.html',
+        controller: 'layoutController as vm'
       })
       .state('layout.board', {
         url: "/board/:id",
         controller: 'boardController as vm',
+        authenticate: true,
         params: {
           id: {
             value: null,
@@ -40,5 +44,16 @@
           return 'app/boards/create.html';
         }
       });
+  });
+  module.run(function($rootScope, $state, Authentication) {
+    $rootScope.$on('$stateChangeStart', function(event, toState) {
+      if (toState.authenticate && !Authentication.isAuthenticated()) {
+        $state.transitionTo('login');
+        event.preventDefault();
+      }
+      /* if (toState.name === 'login' && Authentication.isAuthenticated()) {
+        event.preventDefault();
+      }*/
+    });
   });
 })(angular.module('app.core'));

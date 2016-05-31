@@ -1,5 +1,6 @@
 (function(module) {
-  module.controller('boardController', function(Board, $stateParams, $state, BoardGet, Sticky) {
+  module.controller('boardController', function(Board, $stateParams, $state,
+    BoardGet, Sticky, $mdToast) {
     var vm = this;
     vm.board = {};
     var id = $stateParams.id;
@@ -93,19 +94,28 @@
         }]
       }];
       vm.board.type = vm.boardtypes[0];
-    };
+      vm.board.private = true;
+    }
 
     vm.availableColors = [
-      "#FFEB3B",
-      "#F44336",
-      "#03A9F4",
-      "#FF9800" ];
+      "bggreen",
+      "bgblue",
+      "bgpink",
+      "bgpurple",
+      "bgwhite",
+      "bgyellow"
+    ];
 
     vm.addSticky = function(arrRef) {
       arrRef.push({});
     };
     vm.save = function() {
       Board.save(vm.board, function(d) {
+        $mdToast.show(
+          $mdToast.simple()
+          .textContent(d.name + ' Created!')
+          .hideDelay(2000)
+        );
         $state.go('layout.board', {
           id: d._id
         });
