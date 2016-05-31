@@ -43,6 +43,12 @@
           }
           return 'app/boards/create.html';
         }
+      })
+      .state('layout.profile', {
+        url: "/profile",
+        controller: 'profileController as vm',
+        templateUrl: 'app/profile/profile.html',
+        authenticate: true
       });
   });
   module.run(function($rootScope, $state, Authentication) {
