@@ -1,5 +1,6 @@
 (function(module) {
-  module.controller('boardController', function(Board, $stateParams, $state, BoardGet, Sticky) {
+  module.controller('boardController', function(Board, $stateParams, $state,
+    BoardGet, Sticky, $mdToast) {
     var vm = this;
     vm.board = {};
     var id = $stateParams.id;
@@ -93,7 +94,7 @@
         }]
       }];
       vm.board.type = vm.boardtypes[0];
-      vm.board.private=true;
+      vm.board.private = true;
     }
 
     vm.availableColors = [
@@ -110,6 +111,11 @@
     };
     vm.save = function() {
       Board.save(vm.board, function(d) {
+        $mdToast.show(
+          $mdToast.simple()
+          .textContent(d.name + ' Created!')
+          .hideDelay(2000)
+        );
         $state.go('layout.board', {
           id: d._id
         });
