@@ -4,5 +4,5 @@
     'ui.router',
     'ngResource',
     'ngMessages'
-  ])
-})(angular);
+  ]);
+}(angular));

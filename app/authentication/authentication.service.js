@@ -1,26 +1,23 @@
-(function(module) {
-  module.service('Authentication', function($http, AUTH_PATH, $q, localStorage) {
-
+(function (module) {
+  module.service('Authentication', function ($http, AUTH_PATH, $q, localStorage) {
     var _userData = {
       email: '',
       token: ''
     };
-
-    this.loginViaGoogle = function() {
+    this.loginViaGoogle = function () {
       $http({
         url: AUTH_PATH + '/google',
         method: 'GET'
-      }).then(function(data) {
-
+      }).then(function (data) {
       });
-    }
-    this.login = function(user, scb, ecb) {
+    };
+    this.login = function (user, scb, ecb) {
       var defered = $q.defer();
       $http({
         url: AUTH_PATH + '/local',
         data: user,
         method: 'POST'
-      }).then(function(response) {
+      }).then(function (response) {
         _userData.email = user.email;
         _userData.token = response.data.token;
         localStorage.add('authData', _userData);
@@ -28,7 +25,7 @@
         if (scb) {
           scb(response);
         }
-      }, function(response) {
+      }, function (response) {
         if (ecb) {
           ecb(response);
         }
@@ -36,16 +33,15 @@
       });
       return defered.promise;
     };
-    this.isAuthenticated = function() {
+    this.isAuthenticated = function () {
       return localStorage.get('authData') && localStorage.get('authData').length !== 0;
     };
-    this.logout = function() {
+    this.logout = function () {
       _userData.email = '';
       _userData.token = '';
       localStorage.remove('authData');
     };
-    this.register = function() {
-
+    this.register = function () {
     };
   });
-})(angular.module('app.auth'));
+}(angular.module('app.auth')));
