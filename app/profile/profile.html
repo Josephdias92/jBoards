@@ -1,3 +1,22 @@
-<md-content>
-  <h1>Profile</h1>
+<md-content layout layout-align="center center" >
+  <div flex="80" layout style="box-shadow: 1px 1px 1px 1px #ddd;
+    height: 91vh;" layout-align="center start">
+    <div flex layout style="margin-top:5%;">
+      <div flex="30" layout style="width:200px;height:200px;" layout-align="center start">
+        
+        <img src="http://placehold.it/200x200">
+      </div>
+      <div layout="column" flex style="padding:1rem;">
+        <div style="    font-size: 1.5rem;
+    color: #7D7575;
+    font-family: Montserrat;
+    font-weight: bold;
+    padding: .4rem;">FirstName LastName</div>
+        <div style="padding: .4rem;
+    font-family: Montserrat;">{{vm.User.email}}</div>
+        <div style="padding: .4rem;
+    font-family: Montserrat;">{{vm.User.role}}</div>
+      </div>
+    </div>
+  </div>
 </md-content>
