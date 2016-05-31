@@ -1,0 +1,16 @@
+//fonts
+$font_0: Roboto;
+$font_1: sans-serif;
+$red: rgb(221,44,0);
+.login-page {
+  min-height: 100vh;
+  font-family: $font_0, $font_1;
+  .login-form {
+    padding: 25px;
+  }
+}
+.text-danger {
+  color: $red;
+  font-size: 12px;
+  line-height: 14px;
+}
