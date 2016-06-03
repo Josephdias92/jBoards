@@ -40,7 +40,7 @@
         </md-input-container>
          <md-input-container class="md-block" flex="20">
             <label>Color</label>
-            <md-select ng-init="section.color=vm.availableColors[5]" ng-model="section.color">
+            <md-select ng-model="section.color">
               <md-option ng-repeat="color in vm.availableColors track by $index" ng-value="color">
                 <span ng-class="color" >&nbsp &nbsp &nbsp</span>
               </md-option>
