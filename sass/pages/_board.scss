@@ -1,0 +1,76 @@
+.section {
+  background-color: #333;
+}
+
+.text-center {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 1rem;
+  color: #7D7575;
+  font-family: Montserrat;
+  font-weight: bold;
+}
+
+.create-board-header {
+  font-size: 1.2rem;
+  color: #7D7575;
+  font-family: Montserrat;
+  font-weight: bold;
+  padding-left: 1rem;
+}
+
+.sticky {
+  font-family: Handwritten;
+  height: 100%;
+}
+
+.sticky .typing {
+  border: none;
+  outline: none;
+  resize: none;
+  background-color: transparent;
+}
+
+.sticky-preview {
+  font-family: Handwritten;
+  background-color: #ffff88;
+  padding: 5px;
+}
+
+.addMore {
+  max-width: 46%;
+  border: 2px solid #D2D2D2;
+  height: 136px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.dndDragover {
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12) !important;
+}
+
+.bggreen {
+  background-color: #BEF1BA !important;
+}
+
+.bgblue {
+  background-color: #CCE9F7 !important;
+}
+
+.bgpink {
+  background-color: #EFBFEF !important;
+}
+
+.bgpurple {
+  background-color: #CFC6FD !important;
+}
+
+.bgwhite {
+  background-color: #F4F4F4 !important;
+}
+
+.bgyellow {
+  background-color: #ffff88 !important;
+}

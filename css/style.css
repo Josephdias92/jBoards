@@ -1,3 +1,17 @@
+body {
+  font-family: Roboto; }
+
+.login-page {
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif; }
+  .login-page .login-form {
+    padding: 25px; }
+
+.text-danger {
+  color: #dd2c00;
+  font-size: 12px;
+  line-height: 14px; }
+
 .section {
   background-color: #333; }
 
@@ -42,9 +56,6 @@ li {
 .dndDragover {
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12) !important; }
 
-* {
-  font-family: Roboto; }
-
 .bggreen {
   background-color: #BEF1BA !important; }
 
@@ -62,16 +73,5 @@ li {
 
 .bgyellow {
   background-color: #ffff88 !important; }
-
-.login-page {
-  min-height: 100vh;
-  font-family: Roboto, sans-serif; }
-  .login-page .login-form {
-    padding: 25px; }
-
-.text-danger {
-  color: #dd2c00;
-  font-size: 12px;
-  line-height: 14px; }
 
 /*# sourceMappingURL=style.css.map */
