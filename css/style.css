@@ -1,9 +1,26 @@
 body {
   font-family: Roboto; }
 
+.bg-white {
+  background-color: white !important; }
+
 .login-page {
   min-height: 100vh;
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Roboto', sans-serif;
+  background: -moz-linear-gradient(53deg, #7cb0cf 0%, teal 100%);
+  /* ff3.6+ */
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #7cb0cf), color-stop(100%, teal));
+  /* safari4+,chrome */
+  background: -webkit-linear-gradient(53deg, #7cb0cf 0%, teal 100%);
+  /* safari5.1+,chrome10+ */
+  background: -o-linear-gradient(53deg, #7cb0cf 0%, teal 100%);
+  /* opera 11.10+ */
+  background: -ms-linear-gradient(53deg, #7cb0cf 0%, teal 100%);
+  /* ie10+ */
+  background: linear-gradient(37deg, #7cb0cf 0%, teal 100%);
+  /* w3c */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#008080', endColorstr='#7CB0CF',GradientType=0 );
+  /* ie6-9 */ }
   .login-page .login-form {
     padding: 25px; }
 
@@ -68,7 +85,7 @@ li {
 .bgpurple {
   background-color: #CFC6FD !important; }
 
-.bgwhite {
+.bgoffwhite {
   background-color: #F4F4F4 !important; }
 
 .bgyellow {
