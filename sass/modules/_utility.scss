@@ -1,0 +1,51 @@
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.pull-right {
+  float: right;
+}
+
+.pull-left{
+  float:left;
+}
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+
+  display: inline-block;
+}
+
+/* start commented backslash hack */
+
+* html .clearfix {
+  height: 1%;
+}
+
+.clearfix {
+  display: block;
+}
+
+/* close commented backslash hack */

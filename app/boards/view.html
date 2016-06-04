@@ -1,5 +1,5 @@
 <div layout-margin>
-  <h3 class="text-center">{{vm.board.name||"Board Name"}}</h3>
+  <h3 class="text-center board-name text-capitalize">{{vm.board.name||"Board Name"}}</h3>
   <div layout="row" layout-wrap  layout-align="center start" >
   <div flex="30" dnd-drop="vm.dropCallback(event, index, item, external, type, 'itemType')" dnd-list="section.data" class="md-whiteframe-2dp bg-white" layout-margin ng-repeat="section in vm.board.type.section">
     <div layout-align="center">

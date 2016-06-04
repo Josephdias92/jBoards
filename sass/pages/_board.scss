@@ -2,8 +2,7 @@
   background-color: #333;
 }
 
-.text-center {
-  text-align: center;
+.board-name {
   font-size: 1.5rem;
   padding: 1rem;
   color: #7D7575;
@@ -17,6 +16,7 @@
   font-family: Montserrat;
   font-weight: bold;
   padding-left: 1rem;
+  text-transform: uppercase;
 }
 
 .sticky {
