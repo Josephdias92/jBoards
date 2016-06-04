@@ -47,18 +47,12 @@
         authenticate: true
       });
   });
-  });
   module.run(function($rootScope, $state, Authentication) {
     $rootScope.$on('$stateChangeStart', function(event, toState) {
       if (toState.authenticate && !Authentication.isAuthenticated()) {
         $state.transitionTo('login');
         event.preventDefault();
       }
-    }).state('layout.profile', {
-      url: "/profile",
-      controller: 'profileController as vm',
-      templateUrl: 'app/profile/profile.html',
-      authenticate: true
     });
     module.run(function ($rootScope, $state, Authentication) {
       $rootScope.$on('$stateChangeStart', function (event, toState) {
@@ -71,4 +65,5 @@
             }*/
       });
     });
+  });
   })(angular.module('app.core'));
