@@ -1,3 +1,42 @@
+.text-capitalize {
+  text-transform: capitalize !important; }
+
+.no-padding {
+  padding: 0 !important; }
+
+.text-uppercase {
+  text-transform: uppercase !important; }
+
+.no-margin {
+  margin: 0 !important; }
+
+.text-center {
+  text-align: center; }
+
+.pull-right {
+  float: right; }
+
+.pull-left {
+  float: left; }
+
+.clearfix {
+  display: inline-block; }
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0; }
+
+/* start commented backslash hack */
+* html .clearfix {
+  height: 1%; }
+
+.clearfix {
+  display: block; }
+
+/* close commented backslash hack */
 body {
   font-family: Roboto; }
 
@@ -32,8 +71,7 @@ body {
 .section {
   background-color: #333; }
 
-.text-center {
-  text-align: center;
+.board-name {
   font-size: 1.5rem;
   padding: 1rem;
   color: #7D7575;
@@ -45,7 +83,8 @@ body {
   color: #7D7575;
   font-family: Montserrat;
   font-weight: bold;
-  padding-left: 1rem; }
+  padding-left: 1rem;
+  text-transform: uppercase; }
 
 .sticky {
   font-family: Handwritten;

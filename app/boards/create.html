@@ -70,7 +70,7 @@
   </div>
 <div flex="70" layout-margin>
     <div layout layout-align="center center">
-      <span class="text-center">{{vm.board.name||"Board Name"}}</span>
+      <span class="text-center board-name text-capitalize">{{vm.board.name||"Board Name"}}</span>
     </div>
     <div layout="row" layout-wrap layout-align="center center">
     <div flex="40" class="md-whiteframe-2dp bg-white" layout-padding layout-margin ng-repeat="section in vm.board.type.section track by $index">
