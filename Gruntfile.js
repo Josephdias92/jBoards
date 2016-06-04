@@ -1,17 +1,11 @@
 /* jslint node: true */
-"use strict";
-module.exports = function(grunt) {
+'use strict';
+module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    wiredep: {
-      task: {
-        src: ['index.html']
-      }
-    },
+    wiredep: { task: { src: ['index.html'] } },
     injector: {
-      options: {
-        // Task-specific options go here.
-      },
+      options: {},
       dev: {
         options: {
           addRootSlash: false,
