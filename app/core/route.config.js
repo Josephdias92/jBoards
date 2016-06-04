@@ -1,5 +1,5 @@
-(function(module) {
-  module.config(function($stateProvider, $urlRouterProvider) {
+(function (module) {
+  module.config(function ($stateProvider, $urlRouterProvider) {
     //
     // For any unmatched url, redirect to /state1
     $urlRouterProvider.otherwise('/');
@@ -26,7 +26,7 @@
         }
       },
       resolve: {
-        BoardGet: function(Board, $stateParams) {
+        BoardGet: function (Board, $stateParams) {
           if ($stateParams.id) {
             return Board.get({
               id: $stateParams.id
@@ -34,23 +34,27 @@
           }
         }
       },
-      templateUrl: function($stateParams) {
+      templateUrl: function ($stateParams) {
         if ($stateParams.id) {
           return 'app/boards/view.html';
         }
         return 'app/boards/create.html';
       }
+    }).state('layout.profile', {
+      url: "/profile",
+      controller: 'profileController as vm',
+      templateUrl: 'app/profile/profile.html',
+      authenticate: true
     });
-  });
-  module.run(function($rootScope, $state, Authentication) {
-    $rootScope.$on('$stateChangeStart', function(event, toState) {
-      if (toState.authenticate && !Authentication.isAuthenticated()) {
-        $state.transitionTo('login');
-        event.preventDefault();
-      }
-      /* if (toState.name === 'login' && Authentication.isAuthenticated()) {
-            event.preventDefault();
-          }*/
+    module.run(function ($rootScope, $state, Authentication) {
+      $rootScope.$on('$stateChangeStart', function (event, toState) {
+        if (toState.authenticate && !Authentication.isAuthenticated()) {
+          $state.transitionTo('login');
+          event.preventDefault();
+        }
+        /* if (toState.name === 'login' && Authentication.isAuthenticated()) {
+              event.preventDefault();
+            }*/
+      });
     });
-  });
-})(angular.module('app.core'));
+  })(angular.module('app.core'));

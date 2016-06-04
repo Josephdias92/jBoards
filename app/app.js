@@ -3,6 +3,7 @@
     'app.core',
     'app.common',
     'app.boards',
-    'app.auth'
+    'app.auth',
+    'app.profile'
   ]);
 })(angular);
