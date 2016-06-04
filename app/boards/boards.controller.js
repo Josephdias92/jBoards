@@ -6,7 +6,7 @@
       'bgblue',
       'bgpink',
       'bgpurple',
-      'bgwhite',
+      'bgoffwhite',
       'bgyellow'
     ];
     vm.board = {};
