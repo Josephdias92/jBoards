@@ -10,10 +10,10 @@
             element[0].style.height = $scope.initialHeight;
             element[0].style.height = element[0].scrollHeight + 'px';
           };
-          element.on("input change", resize);
+          element.on('input change', resize);
           $timeout(resize, 0);
         }
       };
     }
   ]);
-})(angular.module('app.boards'));
+}(angular.module('app.boards')));
