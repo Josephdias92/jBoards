@@ -46,6 +46,7 @@
       templateUrl: 'app/profile/profile.html',
       authenticate: true
     });
+  });
     module.run(function ($rootScope, $state, Authentication) {
       $rootScope.$on('$stateChangeStart', function (event, toState) {
         if (toState.authenticate && !Authentication.isAuthenticated()) {
