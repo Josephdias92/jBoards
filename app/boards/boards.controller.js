@@ -1,5 +1,6 @@
 (function(module) {
-  module.controller('boardController', function(Board, $stateParams, $state, BoardGet, Sticky, $mdToast) {
+  module.controller('boardController', function(Board, $stateParams, $state,
+    BoardGet, Sticky, $mdToast) {
     var vm = this;
     vm.availableColors = [
       'bggreen',
@@ -125,7 +126,8 @@
     };
     vm.save = function() {
       Board.save(vm.board, function(d) {
-        $mdToast.show($mdToast.simple().textContent(d.name + ' Created!').hideDelay(2000));
+        $mdToast.show($mdToast.simple()
+          .textContent(d.name + ' Created!').hideDelay(2000));
         $state.go('layout.board', {
           id: d._id
         });

@@ -61,7 +61,13 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#008080', endColorstr='#7CB0CF',GradientType=0 );
   /* ie6-9 */ }
   .login-page .login-form {
-    padding: 25px; }
+    padding: 3rem; }
+    .login-page .login-form .login-header {
+      font-size: 1.5rem;
+      padding: 1rem;
+      color: #7D7575;
+      font-family: Montserrat;
+      font-weight: bold; }
 
 .text-danger {
   color: #dd2c00;

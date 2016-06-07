@@ -23,7 +23,14 @@
 
   /* ie6-9 */
   .login-form {
-    padding: 25px;
+    padding: 3rem;
+    .login-header{
+      font-size: 1.5rem;
+      padding: 1rem;
+      color: #7D7575;
+      font-family: Montserrat;
+      font-weight: bold;
+    }
   }
 }
 
