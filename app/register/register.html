@@ -1,10 +1,10 @@
-<div layout="row" class="login-page" layout-align="center center" >
+<div layout="row" class="form-page" layout-align="center center" >
   <div layout="column">
     <form novalidate="" name="registerForm">
       <md-card class="register-form" >
         <md-card-title>
           <md-card-title-text>
-            <span class="md-headline login-header">Register</span>
+            <span class="md-headline form-header">Register</span>
           </md-card-title-text>
         </md-card-title>
         <md-card-content layout="column" layout-align="center center">
@@ -15,7 +15,7 @@
           <md-input-container>
             <label>Enter Your Email Id</label>
             <input name="email" required="" ng-model="vm.user.email" type="email">
-            <div ng-messages="loginForm.email.$error">
+            <div ng-messages="registerForm.email.$error">
               <div ng-message="required">Email is required.</div>
             </div>
           </md-input-container>
@@ -23,7 +23,7 @@
             <label>Enter A New Password</label>
             <!--add min length-->
             <input name="password"  required="" ng-model="vm.user.password" type="password">
-            <div ng-messages="loginForm.password.$error">
+            <div ng-messages="registerForm.password.$error">
               <div ng-message="required">Password is required.</div>
               <div ng-message="minlength">should be greater than 6 characters.</div>
             </div>

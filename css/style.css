@@ -62,7 +62,7 @@ body {
   /* ie6-9 */ }
   .login-page .login-form, .login-page .register-form {
     padding: 3rem; }
-    .login-page .login-form .login-header, .login-page .register-form .login-header {
+    .login-page .login-form .login-header, .login-page .login-form .register-header, .login-page .register-form .login-header, .login-page .register-form .register-header {
       font-size: 1.5rem;
       padding: 1rem;
       color: #7D7575;
