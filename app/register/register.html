@@ -1,22 +1,26 @@
 <div layout="row" class="login-page" layout-align="center center" >
   <div layout="column">
-    <form novalidate="" name="loginForm">
-      <md-card class="login-form" >
+    <form novalidate="" name="registerForm">
+      <md-card class="register-form" >
         <md-card-title>
           <md-card-title-text>
-            <span class="md-headline login-header">Login</span>
+            <span class="md-headline login-header">Register</span>
           </md-card-title-text>
         </md-card-title>
         <md-card-content layout="column" layout-align="center center">
+        <md-input-container>
+          <label>Click To Upload Image</label>
+          </div>
+        </md-input-container>
           <md-input-container>
-            <label>Email</label>
+            <label>Enter Your Email Id</label>
             <input name="email" required="" ng-model="vm.user.email" type="email">
             <div ng-messages="loginForm.email.$error">
               <div ng-message="required">Email is required.</div>
             </div>
           </md-input-container>
           <md-input-container>
-            <label>Password</label>
+            <label>Enter A New Password</label>
             <!--add min length-->
             <input name="password"  required="" ng-model="vm.user.password" type="password">
             <div ng-messages="loginForm.password.$error">
@@ -25,16 +29,11 @@
             </div>
           </md-input-container>
           <md-card-actions layout="row">
-            <md-button class="md-raised md-primary" ng-disabled="loginForm.$invalid" ng-click="vm.login(vm.user)">Login</md-button>
-            <md-button class="md-raised md-primary" click="vm.register(vm.user)">Register</md-button>
+           <md-button class="md-raised md-primary" ng-disabled="registerForm.$invalid" ng-click="vm.register(vm.user)">Register</md-button>
           </md-card-actions>
           <p class="text-danger" ng-bind="vm.errMsg"></p>
           <md-divider></md-divider>
           <p >or you can sign in using</p>
-          <md-card-actions layout="row">
-            <md-button class="md-hue-1" ng-click="vm.loginViaGoogle()"><md-icon md-font-icon="fa fa-google"> Gmail</md-icon></md-button>
-            <md-button class="md-primary"><md-icon md-font-icon="fa fa-slack"> Slack</md-icon></md-button>
-          </md-card-actions>
         </md-card-content>
       </md-card>
     </form>
