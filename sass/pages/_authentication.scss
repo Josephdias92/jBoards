@@ -22,9 +22,9 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#008080', endColorstr='#7CB0CF',GradientType=0 );
 
   /* ie6-9 */
-  .login-form {
+  .login-form, .register-form {
     padding: 3rem;
-    .login-header{
+    .login-header, .register-header{
       font-size: 1.5rem;
       padding: 1rem;
       color: #7D7575;

@@ -8,6 +8,13 @@
       }, function (err) {
         vm.errMsg = err.data.message;
       });
+      vm.register = function (user) {
+        Authentication.login(user, function () {
+          $state.transitionTo('layout.register');
+        },function (err) {
+          vm.errMsg = err.data.message;
+        });
+      }
     };
     vm.loginViaGoogle = function () {
       Authentication.loginViaGoogle();
