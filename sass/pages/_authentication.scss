@@ -1,27 +1,7 @@
 .login-page {
   min-height: 100vh;
   font-family: 'Roboto', sans-serif;
-  background: -moz-linear-gradient(53deg, rgba(124, 176, 207, 1) 0%, rgba(0, 128, 128, 1) 100%);
-
-  /* ff3.6+ */
-  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, rgba(124, 176, 207, 1)), color-stop(100%, rgba(0, 128, 128, 1)));
-
-  /* safari4+,chrome */
-  background: -webkit-linear-gradient(53deg, rgba(124, 176, 207, 1) 0%, rgba(0, 128, 128, 1) 100%);
-
-  /* safari5.1+,chrome10+ */
-  background: -o-linear-gradient(53deg, rgba(124, 176, 207, 1) 0%, rgba(0, 128, 128, 1) 100%);
-
-  /* opera 11.10+ */
-  background: -ms-linear-gradient(53deg, rgba(124, 176, 207, 1) 0%, rgba(0, 128, 128, 1) 100%);
-
-  /* ie10+ */
-  background: linear-gradient(37deg, rgba(124, 176, 207, 1) 0%, rgba(0, 128, 128, 1) 100%);
-
-  /* w3c */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#008080', endColorstr='#7CB0CF',GradientType=0 );
-
-  /* ie6-9 */
+  background:url('../res/img/bg.png');
   .login-form {
     padding: 3rem;
     .login-header{
