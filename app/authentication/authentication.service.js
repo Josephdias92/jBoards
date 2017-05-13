@@ -29,7 +29,7 @@
         });
     };
     this.getProfile = function() {
-      // return localStorage.get('auth').user;
+      return localStorage.get('auth').user;
     };
     this.logout = function() {
       localStorage.clear();

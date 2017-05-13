@@ -22,6 +22,12 @@
 .sticky {
   font-family: Handwritten;
   height: 100%;
+  position: relative;
+  .delete {
+    position: absolute;
+    right: -4px;
+    top: 0;
+  }
 }
 
 .sticky .typing {

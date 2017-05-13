@@ -116,12 +116,10 @@
     }];
 
     vm.changeType = function(selectedRetroType) {
-      vm.sections = selectedRetroType.section;
-      vm.board.type = selectedRetroType.type;
+      vm.board.type = selectedRetroType;
     };
     vm.selectedRetroType = vm.boardtypes[0];
     vm.changeType(vm.selectedRetroType);
-    vm.board.team = Users.all();
     vm.board.private = true;
     vm.save = function() {
       boards.$add(vm.board).then(function(ref) {

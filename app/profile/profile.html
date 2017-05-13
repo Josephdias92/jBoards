@@ -1,7 +1,7 @@
 <md-content layout layout-align="center">
     <md-card flex="60">
-        <div class="md-card-image" style="position:relative;background: rgb(255, 64, 129);border-radius:50%;width:150px; color:white;font-weight:bold; height:150px; font-size:40px; border:1px solid #ccc;margin:auto;">
-            <span style="position:absolute;left:50%; top:50%;transform: translate(-50%, -50%)">{{vm.user.initials}}</span>
+        <div class="md-card-image profile-image">
+            <span>{{vm.user.initials}}</span>
         </div>
         <img ng-if="vm.user.image" ng-src="{{vm.user.image}}" class="md-card-image" alt="Profile">
         <md-card-content>
