@@ -1,26 +1,27 @@
 <md-content>
-  <md-toolbar>
-    <div class="md-toolbar-tools">
-      <h2>
-        <span>JBoards</span>
-      </h2>
-    </md-button>
-    <span flex></span>
-    <md-menu md-offset="0 -7">
-      <md-button  ng-click="$mdOpenMenu($event)" class="md-icon-button" aria-label="More">
-        <md-icon md-menu-origin md-font-icon="fa fa-ellipsis-v"></md-icon>
-      </md-button>
-      <md-menu-content width="4">
-        <md-menu-item>
-          <md-button ui-sref="layout.profile" > <span md-menu-align-target>User Profile</span></md-button>
-        </md-menu-item>
-        <md-menu-item>
-          <md-button ng-click="vm.logout()" > <span md-menu-align-target>Logout</span></md-button>
-        </md-menu-item>
-
-      </md-menu-content>
-    </md-menu>
-  </div>
-</md-toolbar>
-<ui-view></ui-view>
+    <md-toolbar md-whiteframe="3">
+        <div class="md-toolbar-tools">
+            <a ui-sref="layout.board.create">
+                <h2>
+                    <span>JBoards</span>
+                </h2>
+            </a>
+            </md-button>
+            <span>{{root.displayName}}</span>
+            <md-menu md-offset="0 -7">
+                <md-button ng-click="$mdOpenMenu($event)" class="md-icon-button" aria-label="More">
+                    <md-icon md-menu-origin md-font-icon="fa fa-ellipsis-v"></md-icon>
+                </md-button>
+                <md-menu-content width="4">
+                    <md-menu-item>
+                        <md-button ui-sref="layout.profile"> <span md-menu-align-target>User Profile</span></md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button ng-click="vm.logout()"> <span md-menu-align-target>Logout</span></md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+        </div>
+    </md-toolbar>
+    <ui-view></ui-view>
 </md-content>

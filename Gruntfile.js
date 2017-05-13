@@ -1,9 +1,13 @@
 /* jslint node: true */
 'use strict';
-module.exports = function (grunt) {
+module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    wiredep: { task: { src: ['index.html'] } },
+    wiredep: {
+      task: {
+        src: ['index.html']
+      }
+    },
     injector: {
       options: {},
       dev: {

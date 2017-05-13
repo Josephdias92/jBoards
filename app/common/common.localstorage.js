@@ -16,10 +16,14 @@
     var remove = function(key) {
       store.removeItem(key);
     };
+    var clear = function() {
+      store.clear();
+    }
     return {
       add: add,
       get: get,
-      remove: remove
+      remove: remove,
+      clear: clear
     };
   };
   module.factory('localStorage', localStorage);

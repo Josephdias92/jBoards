@@ -1,15 +1,43 @@
-<md-content layout layout-align="center start" class="profile-content-area" >
-  <div flex="80" layout  class="profile-view-area">
-    <div flex layout style="margin-top:5%;">
-      <div class="profile-image-area" flex="30" layout  layout-align="center start">
-        
-        <img src="http://placehold.it/200x200">
-      </div>
-      <div layout="column" flex style="padding:1rem;">
-        <div class="profile-name-text">FirstName LastName</div>
-        <div class="profile-secondary-text">{{vm.User.email}}</div>
-        <div class="profile-secondary-text">{{vm.User.role}}</div>
-      </div>
-    </div>
-  </div>
+<md-content layout layout-align="center">
+    <md-card flex="60">
+        <div class="md-card-image" style="position:relative;background: rgb(255, 64, 129);border-radius:50%;width:150px; color:white;font-weight:bold; height:150px; font-size:40px; border:1px solid #ccc;margin:auto;">
+            <span style="position:absolute;left:50%; top:50%;transform: translate(-50%, -50%)">{{vm.user.initials}}</span>
+        </div>
+        <img ng-if="vm.user.image" ng-src="{{vm.user.image}}" class="md-card-image" alt="Profile">
+        <md-card-content>
+            <div layout="row">
+                <div flex="50">
+                    <md-input-container class="md-icon-float md-block">
+                        <label>Display Name</label>
+                        <input ng-model="vm.user.displayName" type="text">
+                    </md-input-container>
+                </div>
+                <div flex="50">
+                    <md-input-container class="md-icon-float md-block">
+                        <label>Department</label>
+                        <input ng-model="vm.user.department" type="text">
+                    </md-input-container>
+                </div>
+            </div>
+            <div layout="row">
+                <div flex="50">
+                    <md-input-container class="md-icon-float md-block">
+                        <label>First Name</label>
+                        <input ng-model="vm.user.firstname" type="text">
+                    </md-input-container>
+                </div>
+                <div flex="50">
+                    <md-input-container class="md-icon-float md-block">
+                        <label>Last Name</label>
+                        <input ng-model="vm.user.lastname" type="text">
+                    </md-input-container>
+                </div>
+            </div>
+
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button ng-click="vm.save(vm.user)">Save</md-button>
+            <md-button>Cancel</md-button>
+        </md-card-actions>
+    </md-card>
 </md-content>

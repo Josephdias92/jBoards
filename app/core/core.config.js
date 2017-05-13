@@ -12,4 +12,15 @@
       .primaryPalette('teal')
       .backgroundPalette('background');
   });
+  module.config(function() {
+    var config = {
+      apiKey: "AIzaSyB4cdl8gcBbtGeZMH9ByyTL-xW3ppcf1k4",
+      authDomain: "personal-f544c.firebaseapp.com",
+      databaseURL: "https://personal-f544c.firebaseio.com",
+      projectId: "personal-f544c",
+      storageBucket: "personal-f544c.appspot.com",
+      messagingSenderId: "545670407884"
+    };
+    firebase.initializeApp(config);
+  });
 })(angular.module('app.core'));

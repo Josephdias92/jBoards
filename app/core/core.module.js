@@ -3,6 +3,7 @@
     'ngMaterial',
     'ui.router',
     'ngResource',
-    'ngMessages'
+    'ngMessages',
+    'firebase'
   ]);
-}(angular));
+})(angular);

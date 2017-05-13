@@ -1,13 +1,14 @@
-(function (module) {
+(function(module) {
   'use strict';
-  module.factory('authInterceptorService', function ($q, $injector, localStorage) {
+  module.factory('authInterceptorService', function($q, $injector,
+    localStorage) {
     var service = {};
     /**
      * function that intercept all request and adds token if its present
      * @param  {Object} config configuration object
      * @return {Object}        modified configuration object
      */
-    service.request = function (config) {
+    service.request = function(config) {
       config.headers = config.headers || {};
       var authData = localStorage.get('authData');
       if (authData) {
@@ -20,7 +21,7 @@
      * @param  {Object} response response object which contains response error and response status
      * @return {Promise}          Promise
      */
-    service.responseError = function (response) {
+    service.responseError = function(response) {
       var $state = $injector.get('$state');
       if (response.status === 401) {
         $state.go('login');
@@ -29,4 +30,4 @@
     };
     return service;
   });
-}(angular.module('app.auth')));
+})(angular.module('app.auth'));

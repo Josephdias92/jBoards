@@ -1,47 +1,46 @@
-(function (module) {
-  module.service('Authentication', function ($http, AUTH_PATH, $q, localStorage) {
-    var _userData = {
-      email: '',
-      token: ''
-    };
-    this.loginViaGoogle = function () {
-      $http({
-        url: AUTH_PATH + '/google',
-        method: 'GET'
-      }).then(function (data) {
+(function(module) {
+  module.service('Authentication', function($firebaseAuth, Users,
+    localStorage) {
+    var authObj = $firebaseAuth();
+    this.loginViaGoogle = function() {
+      return authObj.$signInWithPopup('google').then(function(
+        firebaseUser) {
+        localStorage.add('auth', firebaseUser);
+        Users.profile(firebaseUser.user.uid).$loaded().then(
+          function(user) {
+            if (!user.uid) {
+              user.uid = firebaseUser.user.uid;
+              user.displayName = firebaseUser.user.displayName;
+              var name = user.displayName.split(' ');
+              user.firstname = name && name[0] || '';
+              user.lastname = name && name[1] || '';
+              user.initials = (user.firstname && user.firstname[
+                0]) + (user.lastname && user.lastname[0]);
+              user.email = firebaseUser.user.email;
+              user.$save();
+            }
+          });
       });
     };
-    this.login = function (user, scb, ecb) {
-      var defered = $q.defer();
-      $http({
-        url: AUTH_PATH + '/local',
-        data: user,
-        method: 'POST'
-      }).then(function (response) {
-        _userData.email = user.email;
-        _userData.token = response.data.token;
-        localStorage.add('authData', _userData);
-        defered.resolve(response);
-        if (scb) {
-          scb(response);
-        }
-      }, function (response) {
-        if (ecb) {
-          ecb(response);
-        }
-        defered.reject(response);
-      });
-      return defered.promise;
+    this.login = function(user) {
+      return authObj.$signInWithEmailAndPassword(user.email, user.password)
+        .then(function(firebaseUser) {
+          localStorage.add('auth', firebaseUser);
+        });
     };
-    this.isAuthenticated = function () {
-      return localStorage.get('authData') && localStorage.get('authData').length !== 0;
+    this.getProfile = function() {
+      // return localStorage.get('auth').user;
     };
-    this.logout = function () {
-      _userData.email = '';
-      _userData.token = '';
-      localStorage.remove('authData');
+    this.logout = function() {
+      localStorage.clear();
+      authObj.$signOut();
     };
-    this.register = function () {
+    this.register = function(user) {
+      return authObj.$createUserWithEmailAndPassword(user.email,
+          user.password)
+        .then(function(firebaseUser) {
+          localStorage.add('auth', firebaseUser);
+        });
     };
   });
-}(angular.module('app.auth')));
+})(angular.module('app.auth'));

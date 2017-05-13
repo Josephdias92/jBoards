@@ -1,17 +1,16 @@
 (function(module) {
-  module.service('Profile', function($http, SERVER_PATH, $q) {
-
-    this.getUser = function() {
-      var defered = $q.defer();
-      $http({
-        url: SERVER_PATH + '/users/me',
-        method: 'GET'
-      }).then(function(response) {
-        defered.resolve(response);
-      }, function(response) {
-        defered.reject(response);
-      });
-      return defered.promise;
+  module.factory('Users', function($firebaseArray, $firebaseObject,
+    localStorage) {
+    return {
+      all: function() {
+        var ref = firebase.database().ref('users');
+        return $firebaseArray(ref);
+      },
+      profile: function() {
+        var auth = localStorage.get('auth');
+        var ref = firebase.database().ref('users/' + auth.user.uid);
+        return $firebaseObject(ref);
+      }
     };
   });
 })(angular.module('app.auth'));

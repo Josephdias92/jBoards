@@ -1,104 +1,104 @@
-
-
 <div layout="row" layout-xs="column">
-  <div flex="30" class="bg-white md-whiteframe-2dp">
-  <form name="createBoard">
-    <md-list>
-      <h3 class="create-board-header">Create Board</h3>
-      <md-list-item>
-        <md-input-container class="md-block" flex>
-          <label>Name</label>
-          <input name="boardName"  ng-model="vm.board.name" required="">
-          <div ng-messages="createBoard.boardName.$error">
-              <div ng-message="required">Board Name is required.</div>
+    <div flex="30" class="bg-white md-whiteframe-2dp">
+        <form name="createBoard">
+            <md-list>
+                <h3 class="create-board-header">Create Board</h3>
+                <md-list-item>
+                    <md-input-container class="md-block" flex>
+                        <label>Name</label>
+                        <input name="boardName" ng-model="vm.board.name" required="">
+                        <div ng-messages="createBoard.boardName.$error">
+                            <div ng-message="required">Board Name is required.</div>
+                        </div>
+                    </md-input-container>
+                </md-list-item>
+
+                <md-list-item>
+                    <md-input-container class="md-block" flex>
+                        <label>Description</label>
+                        <textarea name="description" ng-model="vm.board.description" md-maxlength="100" rows="2" md-select-on-focus></textarea>
+                    </md-input-container>
+                </md-list-item>
+
+                <md-list-item>
+                    <md-input-container class="md-block" flex>
+                        <label>Board Type</label>
+                        <md-select ng-change="vm.changeType(vm.selectedRetroType)" ng-model="vm.selectedRetroType">
+                            <md-option ng-repeat="type in vm.boardtypes" ng-value="type">
+                                {{type.name}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </md-list-item>
+
+                <md-list-item ng-repeat="section in vm.sections track by $index" layout-align="center">
+                    <md-input-container class="md-block" flex>
+                        <label>Section Name({{::section.originalName}})</label>
+                        <input ng-blur="section.name=section.name||section.originalName" ng-model="section.name">
+                    </md-input-container>
+                    <md-input-container class="md-block" flex="20">
+                        <label>Color</label>
+                        <md-select ng-model="section.color">
+                            <md-option ng-repeat="color in vm.availableColors track by $index" ng-value="color">
+                                <span ng-class="color">&nbsp &nbsp &nbsp</span>
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </md-list-item>
+
+                <md-list-item>
+                    <md-contact-chips flex ng-model="vm.board.team" secondary-placeholder="Enter Team Name or Emails" placeholder="Enter Team Name or Emails">
+                    </md-contact-chips>
+                </md-list-item>
+                <md-list-item md-no-ink>
+                    <div layout-margin flex>
+                        <md-checkbox class="md-primary" ng-model="vm.board.timeout" aria-label="timeout">
+                            Timeout (15 Mins)
+                        </md-checkbox>
+                        <md-checkbox class="md-primary" ng-model="vm.board.private" aria-label="Private">
+                            Private
+                        </md-checkbox>
+                    </div>
+                </md-list-item>
+                <md-list-item>
+                    <md-button ng-disabled="createBoard.$invalid" ng-click="vm.save()" class="md-raised md-primary">Create</md-button>
+                </md-list-item>
+            </md-list>
+        </form>
+    </div>
+    <div flex="70" layout-margin>
+        <div layout layout-align="center center">
+            <span class="text-center board-name text-capitalize">{{vm.board.name||"Board Name"}}</span>
+        </div>
+        <div layout="row" layout-wrap layout-align="center center">
+            <div flex="40" class="md-whiteframe-2dp bg-white" layout-padding layout-margin ng-repeat="section in vm.sections track by $index">
+                <div layout-align="center">
+                    {{section.name}}
+                </div>
+                <div layout="row" layout-wrap>
+                    <md-card flex="42" class="md-card sticky-preview" ng-class="section.color">
+                        <md-card-content style="height: 35px;">
+                            some text
+                        </md-card-content>
+                        <md-card-actions layout="row" layout-align="end end" style="margin:0px;">
+                            <md-button class="md-icon-button">
+                                <md-icon md-font-icon="fa fa-heart"></md-icon>
+                            </md-button>
+                        </md-card-actions>
+                    </md-card>
+                    <md-card flex="42" class="md-card sticky-preview" ng-class="section.color">
+                        <md-card-content style="height: 35px;">
+                            some text
+                        </md-card-content>
+                        <md-card-actions layout="row" layout-align="end emd" style="margin:0px;">
+                            <md-button class="md-icon-button">
+                                <md-icon md-font-icon="fa fa-heart"></md-icon>
+                            </md-button>
+                        </md-card-actions>
+                    </md-card>
+                </div>
+
             </div>
-        </md-input-container>
-      </md-list-item>
-
-      <md-list-item>
-        <md-input-container class="md-block" flex>
-          <label>Description</label>
-          <textarea name="description" ng-model="vm.board.description" md-maxlength="100" rows="5" md-select-on-focus></textarea>
-        </md-input-container>
-      </md-list-item>
-
-      <md-list-item>
-        <md-input-container class="md-block" flex>
-          <label>Board Type</label>
-          <md-select ng-change="vm.getRowSpan()" ng-model="vm.board.type">
-            <md-option ng-repeat="type in vm.boardtypes" ng-value="type">
-              {{type.name}}
-            </md-option>
-          </md-select>
-        </md-input-container>
-      </md-list-item>
-
-      <md-list-item ng-repeat="section in vm.board.type.section track by $index" layout-align="center">
-        <md-input-container class="md-block" flex>
-          <label>Section Name({{::section.originalName}})</label>
-          <input ng-blur="section.name=section.name||section.originalName" ng-model="section.name">
-        </md-input-container>
-         <md-input-container class="md-block" flex="20">
-            <label>Color</label>
-            <md-select ng-model="section.color">
-              <md-option ng-repeat="color in vm.availableColors track by $index" ng-value="color">
-                <span ng-class="color" >&nbsp &nbsp &nbsp</span>
-              </md-option>
-            </md-select>
-          </md-input-container>
-      </md-list-item>
-
-      <md-list-item>
-        <md-contact-chips flex ng-model="vm.board.team" secondary-placeholder="Enter Team Name or Emails" placeholder="Enter Team Name or Emails">
-        </md-contact-chips>
-      </md-list-item>
-      <md-list-item  md-no-ink>
-        <div layout-margin flex>
-          <md-checkbox class="md-primary" ng-model="vm.board.timeout" aria-label="timeout">
-            Timeout (15 Mins)
-          </md-checkbox>
-          <md-checkbox class="md-primary" ng-model="vm.board.private" aria-label="Private">
-            Private
-          </md-checkbox>
         </div>
-      </md-list-item>
-      <md-list-item >
-          <md-button ng-disabled="createBoard.$invalid" ng-click="vm.save()" class="md-raised md-primary">Create</md-button>
-      </md-list-item>
-    </md-list>
-    </form>
-  </div>
-<div flex="70" layout-margin>
-    <div layout layout-align="center center">
-      <span class="text-center board-name text-capitalize">{{vm.board.name||"Board Name"}}</span>
     </div>
-    <div layout="row" layout-wrap layout-align="center center">
-    <div flex="40" class="md-whiteframe-2dp bg-white" layout-padding layout-margin ng-repeat="section in vm.board.type.section track by $index">
-      <div layout-align="center">
-        {{section.name}}
-      </div>
-      <div layout="row" layout-wrap>
-        <md-card flex="42" class="md-card sticky-preview" ng-class="section.color">
-          <md-card-content style="height: 35px;">
-          some text
-          </md-card-content>
-          <md-card-actions layout="row" layout-align="end end" style="margin:0px;">
-                    <md-button class="md-icon-button"><md-icon md-font-icon="fa fa-heart"></md-icon></md-button>
-                  </md-card-actions>
-        </md-card>
-        <md-card flex="42" class="md-card sticky-preview" ng-class="section.color" >
-          <md-card-content style="height: 35px;">
-          some text
-          </md-card-content>
-          <md-card-actions layout="row" layout-align="end emd" style="margin:0px;">
-                    <md-button class="md-icon-button">
-                      <md-icon md-font-icon="fa fa-heart"></md-icon>
-                    </md-button>
-          </md-card-actions>
-        </md-card>
-        </div>
-
-      </div>
-    </div>
-  </div>
 </div>

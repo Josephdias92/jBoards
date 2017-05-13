@@ -1,9 +1,17 @@
 (function(module) {
-  module.service('Board', function($resource, SERVER_PATH) {
-    return $resource(SERVER_PATH + '/boards/:id', null, {
-      update: {
-        method: 'PUT'
-      }
-    });
+  module.factory('Board', function(localStorage, $firebaseArray,
+    $firebaseObject) {
+    return {
+      boards: function() {
+        // var auth = localStorage.get('auth');
+        var ref = firebase.database().ref('boards');
+        return $firebaseArray(ref);
+      },
+      board: function(id) {
+        var auth = localStorage.get('auth');
+        var ref = firebase.database().ref('boards/' + id);
+        return $firebaseObject(ref);
+      },
+    }
   });
 })(angular.module('app.boards'));
