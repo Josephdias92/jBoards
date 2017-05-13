@@ -2,8 +2,10 @@
   module.factory('Users', function($firebaseArray, $firebaseObject,
     localStorage) {
     return {
-      all: function() {
+      search: function(queryString) {
         var ref = firebase.database().ref('users');
+        ref.orderByKey().startAt(queryString).endAt(queryString +
+          "\uf8ff");
         return $firebaseArray(ref);
       },
       profile: function() {

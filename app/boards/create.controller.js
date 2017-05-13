@@ -118,9 +118,14 @@
     vm.changeType = function(selectedRetroType) {
       vm.board.type = selectedRetroType;
     };
+    vm.querySearch = function(query) {
+      return Users.search(query).$loaded();
+    };
+    vm.board.team = [];
     vm.selectedRetroType = vm.boardtypes[0];
     vm.changeType(vm.selectedRetroType);
     vm.board.private = true;
+    // vm.data=Authentication.getProfile 
     vm.save = function() {
       boards.$add(vm.board).then(function(ref) {
         $mdToast.show($mdToast.simple()

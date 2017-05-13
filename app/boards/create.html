@@ -47,7 +47,7 @@
                 </md-list-item>
 
                 <md-list-item>
-                    <md-contact-chips flex ng-model="vm.board.team" secondary-placeholder="Enter Team Name or Emails" placeholder="Enter Team Name or Emails">
+                    <md-contact-chips ng-model="vm.board.team" md-contacts="vm.querySearch($query)" md-contact-name="displayName" md-require-match="true" md-highlight-flags="i" filter-selected="true" placeholder="Team">
                     </md-contact-chips>
                 </md-list-item>
                 <md-list-item md-no-ink>
